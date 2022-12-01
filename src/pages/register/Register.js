@@ -2,8 +2,14 @@ import React from "react";
 import "./register.scss";
 
 import googleSVG from "./../../assets/googleSVG.svg";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+    const navigate = useNavigate();
+
+    function navigateToLogin() {
+        navigate("/login");
+    }
     return (
         <>
             <div className="register">
@@ -30,6 +36,15 @@ const Register = () => {
                             <input type="email" placeholder="Email" />
                             <input type="password" placeholder="Password" />
                             <button>Sign Up</button>
+                            <div className="loginLinkText">
+                                already have an account,{" "}
+                                <span
+                                    className="loginLink"
+                                    onClick={navigateToLogin}
+                                >
+                                    login here
+                                </span>
+                            </div>
                         </form>
                     </div>
                     <div className="right"></div>
