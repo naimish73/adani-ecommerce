@@ -87,7 +87,7 @@ $button-active-blue: #1669f2;
             border-radius: 2px;
             box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
             .google-icon-wrapper {
-                position: absolute;
+                // position: absolute;
                 margin-top: 1px;
                 margin-left: 1px;
                 width: 40px;
@@ -105,6 +105,7 @@ $button-active-blue: #1669f2;
             .btn-text {
                 position: relative;
                 // margin: 11px 11px 0 0;
+                transform: translate(0, -40px);
                 margin: 11px 0;
                 margin-left: 30px;
                 color: $white;
@@ -136,7 +137,7 @@ $button-active-blue: #1669f2;
             background-color: #eee;
             border: none;
             padding: 12px 15px;
-            margin: 8px 0;
+            margin: 5px 0;
             width: Min(100%, 300px);
         }
 
@@ -154,9 +155,13 @@ $button-active-blue: #1669f2;
                 top: 0;
                 height: 100%;
                 transition: all 0.6s ease-in-out;
+                @media (max-width: 1100px) {
+                    overflow-y: auto;
+                }
 
                 .loginLinkText {
-                    transform: translate(0, 40px);
+                    transform: translate(0, 20px);
+                    // font-size: 12px;
                     .loginLink {
                         color: #ff4b2b;
                         font-size: 16px;
@@ -169,9 +174,14 @@ $button-active-blue: #1669f2;
             h1 {
                 margin: 0;
                 text-align: center;
-                padding-top: 10px;
+                // padding-top: 10px;
                 margin-bottom: 20px;
             }
+            // @media (max-width: 1200) {
+            //     h1 {
+            //         padding-top: -40px;
+            //     }
+            // }
         }
 
         .right {
