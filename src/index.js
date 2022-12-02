@@ -18,14 +18,17 @@ root.render(
             <Route path="/register" element={<Register />} />
             <Route path="/" element={<Landing />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/profile" element={<></>} />
+            <Route path="/dashboard" element={<></>} />
             <Route path="/cart" element={<></>} />
             <Route path="/payment" element={<></>} />
-            <Route path="/coursedetails" element={<></>} />
-            <Route path="/video" element={<></>} />
-            <Route path="/notes" element={<></>} />
-            <Route path="/quiz" element={<></>} />
-            <Route path="/discussion" element={<></>} />
+            <Route path="/course-details" element={<></>}>
+                <Route path=":video" element={<></>} />
+                <Route path=":notes" element={<></>} />
+                <Route path=":quiz" element={<></>} />
+                <Route path=":discussion" element={<></>} />
+            </Route>
+            <Route path="/contact-us" element={<></>} />
+            <Route path="/about-us" element={<></>} />
         </Routes>
     </Router>
 );
