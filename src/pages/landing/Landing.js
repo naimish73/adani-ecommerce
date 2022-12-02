@@ -5,6 +5,12 @@ import logo from "./../../assets/adaniUniversity.jpg";
 import bg1 from "./../../assets/slide1.jpeg";
 import bg2 from "./../../assets/slide2.jpg";
 import bg3 from "./../../assets/slide3.jpg";
+import uf1 from "./../../assets/uf1.svg";
+import uf2 from "./../../assets/uf2.svg";
+import uf3 from "./../../assets/uf3.svg";
+import uf4 from "./../../assets/uf4.svg";
+import uf5 from "./../../assets/uf5.svg";
+import uf6 from "./../../assets/uf6.svg";
 
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
@@ -93,8 +99,7 @@ const Landing = () => {
                                 </a>
                             </div>
                             <Nav className="justify-content-start flex-grow-1 pe-3 dropdown">
-                                <Nav.Link href="#action1">Home</Nav.Link>
-                                <Nav.Link href="#action2">Link</Nav.Link>
+                                {/* <Nav.Link href="#action2">Link</Nav.Link> */}
                                 <NavDropdown
                                     title="Courses "
                                     id={`offcanvasNavbarDropdown-expand-${expand}`}
@@ -111,6 +116,7 @@ const Landing = () => {
                                         Machine Learning
                                     </NavDropdown.Item>
                                 </NavDropdown>
+                                <Nav.Link href="#action1">Home</Nav.Link>
                             </Nav>
                             {/* <Form className="d-flex form-search">
                                 <Form.Control
@@ -195,6 +201,75 @@ const Landing = () => {
                             </Carousel.Caption>
                         </Carousel.Item>
                     </Carousel>
+                </div>
+                <div className="after-lendig">
+                    <div className="un-gr">
+                        <div className="un-gr_img">
+                            <img className="img" src={uf1} alt="Third slide" />
+                        </div>
+                        <div className="un-gr_title un-gr_title-un">
+                            UNDERGRADUATE
+                        </div>
+                    </div>
+                    <div className="un-gr">
+                        <div className="un-gr_img">
+                            <img className="img" src={uf2} alt="Third slide" />
+                        </div>
+                        <div className="un-gr_title un-gr_title-un">
+                            GRADUATE
+                        </div>
+                    </div>
+                    <div className="un-gr">
+                        <div className="un-gr_img">
+                            <img className="img" src={uf3} alt="Third slide" />
+                        </div>
+                        <div className="un-gr_title un-gr_title-un">
+                            TRANSFER
+                        </div>
+                    </div>
+                    <div className="un-gr">
+                        <div className="un-gr_img">
+                            <img className="img" src={uf4} alt="Third slide" />
+                        </div>
+                        <div className="un-gr_title un-gr_title-un">
+                            FINANCIAL AID
+                        </div>
+                    </div>
+                    <div className="un-gr">
+                        <div className="un-gr_img">
+                            <img className="img" src={uf5} alt="Third slide" />
+                        </div>
+                        <div className="un-gr_title un-gr_title-un">VISIT</div>
+                    </div>
+                </div>
+                <div className="downword">
+                    <div className="downword_img">
+                        <img className="img" src={uf6} alt="Third slide" />
+                    </div>
+                </div>
+
+                <div className="about_adani">
+                    <div className="div2">
+                        <div className="title">
+                            THE SEARCH FOR ALVERNO'S NINTH PRESIDENT
+                        </div>
+                        <div className="discription">
+                            Alverno's ninth president will drive distinctive
+                            academic excellence and innovation, build on the
+                            College's strengths, and enhance its reputation and
+                            stature nationally and internationally. Alverno's
+                            Board of Trustees has selected Spencer Stuart to
+                            conduct the search for its next president.
+                        </div>
+                        <div className="button">
+                            <a>LEARN MORE ABOUT THE SEARCH</a>
+                        </div>
+                    </div>
+                </div>
+                <div className="downword">
+                    <div className="downword_img">
+                        <img className="img" src={uf6} alt="Third slide" />
+                    </div>
                 </div>
             </div>
         </>
