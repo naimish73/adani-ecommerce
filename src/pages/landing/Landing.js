@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./landing.scss";
+
+import Card from "react-bootstrap/Card";
+import CardGroup from "react-bootstrap/CardGroup";
 
 import logo from "./../../assets/adaniUniversity.jpg";
 import bg1 from "./../../assets/slide1.jpeg";
@@ -11,10 +14,18 @@ import uf3 from "./../../assets/uf3.svg";
 import uf4 from "./../../assets/uf4.svg";
 import uf5 from "./../../assets/uf5.svg";
 import uf6 from "./../../assets/uf6.svg";
+import card1 from "./../../assets/card1.jpeg";
+import card2 from "./../../assets/card2.jpg";
+import card3 from "./../../assets/card3.jpeg";
+// import post1 from "./../../assets/post1.jpg";
+// import post2 from "./../../assets/post2.png";
+// import post3 from "./../../assets/post3.jpg";
+// import post4 from "./../../assets/uf6.svg";
+// import googleicon from "./../../assets/google-icon.png";
 
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
+// import Button from "react-bootstrap/Button";
+// import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
@@ -31,29 +42,6 @@ const Landing = () => {
 
     return (
         <>
-            {/* <div className="landing">
-                <div className="navbar-desktop">
-                    <div className="left">
-                        <img src={logo} alt="adani logo" className="logo" />
-                        <div className="courses">Courses</div>
-                        <div className="searchbar">
-                            <form class="nosubmit">
-                                <input
-                                    class="nosubmit"
-                                    type="search"
-                                    placeholder="Search..."
-                                />
-                            </form>
-                        </div>
-                    </div>
-                    <div className="right">
-                        <div className="contact-us btn">Contact Us</div>
-                        <div className="about-us btn">About Us</div>
-                        <div className="login-btn btn">Login</div>
-                        <div className="register-btn btn">Register</div>
-                    </div>
-                </div>
-            </div> */}
             <Navbar
                 sticky="top"
                 key={expand}
@@ -271,6 +259,98 @@ const Landing = () => {
                         <img className="img" src={uf6} alt="Third slide" />
                     </div>
                 </div>
+                <div className="our-programs">
+                    Explore our majors & programs
+                </div>
+                <div>
+                    <CardGroup>
+                        <Card>
+                            {/* <div className="card-image"> */}
+                            <Card.Img variant="top" src={card1} />
+                            {/* </div> */}
+                            <Card.Body>
+                                <Card.Title>
+                                    Faculty of Management Science
+                                </Card.Title>
+                                <Card.Text>
+                                    Building Growth with Excellence The Faculty
+                                    of Management Studies focuses on management
+                                    education more than just business
+                                    management. The commitment is thoughtful
+                                    leadership with a deep understanding of
+                                    business. The approach to pedagogy combines
+                                    fieldwork, case studies and instrumented
+                                    feedback with a strong emphasis on concepts
+                                    and theory. Take your learning and your
+                                    career further by making the most of our
+                                    rewarding postgraduate opportunities.
+                                </Card.Text>
+                            </Card.Body>
+                            <Card.Footer>
+                                <small className="text-muted">
+                                    Read more ...
+                                </small>
+                            </Card.Footer>
+                        </Card>
+                        <Card>
+                            {/* <div className="card-image"> */}
+                            <Card.Img variant="top" src={card2} />
+                            {/* </div> */}
+                            <Card.Body>
+                                <Card.Title>
+                                    Faculty of Engineering Science & Technology
+                                </Card.Title>
+                                <Card.Text>
+                                    Creating a Foundation for Tomorrow’s Nation
+                                    Builders Technology underpins all facets of
+                                    modern life and evolves at relentless
+                                    speeds. Our purpose is to educate our
+                                    students to participate in creating and
+                                    applying contemporary knowledge and
+                                    technological advances to make a difference.
+                                </Card.Text>
+                            </Card.Body>
+                            <Card.Footer>
+                                <small className="text-muted">
+                                    Read more ...
+                                </small>
+                            </Card.Footer>
+                        </Card>
+                        <Card>
+                            {/* <div className="card-image"> */}
+                            <Card.Img variant="top" src={card3} />
+                            {/* </div> */}
+                            <Card.Body>
+                                <Card.Title>
+                                    Faculty of Doctoral Studies
+                                </Card.Title>
+                                <Card.Text>
+                                    Adani University established in June 2022
+                                    envisions nation building through
+                                    transformative research, with thrust on
+                                    infrastructure, energy, healthcare, and
+                                    defense with underlying enabled by
+                                    technology at all levels addressing
+                                    well-being of the planet and people. At
+                                    Adani University, education finds
+                                    synchronization in transformation.
+                                    Translation of information to implementation
+                                    while transcending the boundaries of
+                                    disciplines and self-conditioning, Adani
+                                    University enables transformation of self,
+                                    society, and the nation.
+                                </Card.Text>
+                            </Card.Body>
+                            <Card.Footer>
+                                <small className="text-muted">
+                                    Read more ...
+                                </small>
+                            </Card.Footer>
+                        </Card>
+                    </CardGroup>
+                </div>
+
+                <div className="footer"></div>
             </div>
         </>
     );

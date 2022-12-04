@@ -1,71 +1,6 @@
-// @import "~bootstrap/scss/bootstrap";
-// .landing {
-//     .navbar-desktop {
-//         height: 60px;
-//         width: 100%;
-//         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-//             0 10px 10px rgba(0, 0, 0, 0.22);
-//         display: flex;
-//         flex-direction: row;
-//         align-items: center;
-//         // position: sticky;
-
-//         .left {
-//             width: 60%;
-//             height: 100%;
-//             display: flex;
-//             flex-direction: row;
-//             align-items: center;
-//             .logo {
-//                 height: 100%;
-//             }
-
-//             .courses {
-//                 margin: 0 15px;
-//                 margin-right: 25px;
-//                 font-weight: 500;
-//             }
-
-//             .searchbar {
-//                 color: #555;
-//                 display: flex;
-//                 padding: 2px;
-//                 // border: 1px solid currentColor;
-//                 border-radius: 5px;
-
-//                 form.nosubmit {
-//                     border: none;
-//                     padding: 0;
-//                 }
-
-//                 input.nosubmit {
-//                     width: 300px;
-//                     border: 1px solid #555;
-//                     border-radius: 50px;
-//                     display: block;
-//                     padding: 9px 4px 9px 40px;
-//                     background: transparent
-//                         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
-//                         no-repeat 13px center;
-//                 }
-//             }
-//         }
-
-//         .right {
-//             width: 40%;
-//             height: 60px;
-//             display: flex;
-//             align-items: center;
-//             justify-content: flex-end;
-//             margin-right: 20px;
-
-//             .btn {
-//                 padding: 0 2%;
-//             }
-//         }
-//     }
-// }
-
+* {
+    margin: 0px;
+}
 .navbarMain {
     margin-bottom: 0 !important;
 }
@@ -135,9 +70,6 @@
             display: none;
         }
     }
-    // * {
-    //     background-color: black;
-    // }
 }
 .btn-mobile {
     display: none;
@@ -221,6 +153,7 @@
 }
 .downword {
     margin-top: 70px;
+    margin-bottom: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -251,13 +184,14 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        max-width: 50%;
+        max-width: clamp(50%, 400px, 600px);
     }
     .title {
         margin-top: 20px;
         font-size: 30px;
         color: #474fa0;
         font-weight: 600;
+        text-align: center;
     }
     .discription {
         text-align: center;
@@ -270,5 +204,52 @@
         padding: 10px 90px;
         font-weight: 500;
         border-radius: 50px;
+        text-align: center;
+
+        @media (min-width: 700px) and (max-width: 900px) {
+            padding: 10px 40px;
+        }
+
+        @media (max-width: 700px) {
+            padding: 10px 30px;
+        }
+        @media (max-width: 450px) {
+            padding: 10px 10px;
+        }
     }
+}
+.our-programs {
+    text-align: center;
+    color: #474fa0;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 70px;
+}
+.card-img-top {
+    height: 30vh;
+    overflow: hidden;
+    background-size: cover;
+    background-clip: border-box;
+}
+.card {
+    border-radius: 50px !important;
+    overflow: hidden;
+    margin: 20px;
+    --bs-border-color-translucent: rgba(0, 0, 0, 0);
+    transition: all 0.5s ease-out;
+}
+.card:hover {
+    box-shadow: 0 -3em 3em rgba(0, 0, 0, 0.1),
+        0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+.text-muted {
+    padding-left: 15px;
+}
+.slider-code {
+    margin-top: 50px;
+    overflow: hidden;
+}
+.footer {
+    margin-top: 70px;
 }
