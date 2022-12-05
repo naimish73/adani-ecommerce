@@ -9,6 +9,7 @@ import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Landing from "./pages/landing/Landing";
+import CourseDetails from "./pages/course-details/CourseDetails";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -21,7 +22,8 @@ root.render(
             <Route path="/dashboard" element={<></>} />
             <Route path="/cart" element={<></>} />
             <Route path="/payment" element={<></>} />
-            <Route path="/course-details" element={<></>}>
+            <Route path="/courses" element={<></>} />
+            <Route path="/course-details" element={<CourseDetails />}>
                 <Route path=":video" element={<></>} />
                 <Route path=":notes" element={<></>} />
                 <Route path=":quiz" element={<></>} />

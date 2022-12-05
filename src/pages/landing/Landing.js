@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./landing.scss";
 
-import Card from "react-bootstrap/Card";
-import CardGroup from "react-bootstrap/CardGroup";
-
+// images
 import logo from "./../../assets/adaniUniversity.jpg";
-import bg1 from "./../../assets/slide1.jpeg";
-import bg2 from "./../../assets/slide2.jpg";
-import bg3 from "./../../assets/slide3.jpg";
+import slide1 from "./../../assets/slide1.jpeg";
+import slide2 from "./../../assets/slide2.jpg";
+import slide3 from "./../../assets/slide3.jpg";
 import uf1 from "./../../assets/uf1.svg";
 import uf2 from "./../../assets/uf2.svg";
 import uf3 from "./../../assets/uf3.svg";
@@ -23,6 +21,7 @@ import card3 from "./../../assets/card3.jpeg";
 // import post4 from "./../../assets/uf6.svg";
 // import googleicon from "./../../assets/google-icon.png";
 
+// nav bar imports
 import Container from "react-bootstrap/Container";
 // import Button from "react-bootstrap/Button";
 // import Form from "react-bootstrap/Form";
@@ -32,13 +31,42 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Carousel from "react-bootstrap/Carousel";
 
+// slider
+import Slider from "./../../Slider/Slider";
+
+// card group imports
+import Card from "react-bootstrap/Card";
+import CardGroup from "react-bootstrap/CardGroup";
+
+// fire base
+
+import "../../firebase/FirebaseAuth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import Login from "../login/Login";
+
 const Landing = () => {
     const expand = "lg";
+    const navigate = useNavigate();
     const [index, setIndex] = useState(0);
+    const [user, setUser] = useState(false);
 
     const handleSelect = (selectedIndex, e) => {
         setIndex(selectedIndex);
     };
+
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            const uid = user.uid;
+            // alert(`user id :  ${uid}`);
+            setUser(true);
+        } else {
+            // User is signed out
+            // ...
+            navigate("/login");
+        }
+    });
 
     return (
         <>
@@ -79,10 +107,10 @@ const Landing = () => {
                                 </form>
                             </div>
                             <div class="header-btn btn-mobile">
-                                <a href="#" class="sign-up">
+                                <a href="../register/" class="sign-up">
                                     Sign Up
                                 </a>
-                                <a href="#" class="sign-in">
+                                <a href="../login/" class="sign-in">
                                     Sign In
                                 </a>
                             </div>
@@ -130,10 +158,10 @@ const Landing = () => {
                                 </form>
                             </div>
                             <div class="header-btn btn-desc">
-                                <a href="#" class="sign-up">
+                                <a href="../register/" class="sign-up">
                                     Sign Up
                                 </a>
-                                <a href="#" class="sign-in">
+                                <a href="../login/" class="sign-in">
                                     Sign In
                                 </a>
                             </div>
@@ -142,7 +170,7 @@ const Landing = () => {
                 </Container>
             </Navbar>
             <div className="body">
-                <div className="hero-banner">
+                {/* <div className="hero-banner">
                     <Carousel activeIndex={index} onSelect={handleSelect}>
                         <Carousel.Item className="slider">
                             <img
@@ -189,7 +217,60 @@ const Landing = () => {
                             </Carousel.Caption>
                         </Carousel.Item>
                     </Carousel>
+                </div> */}
+
+                <div>
+                    <Slider />
                 </div>
+
+                {/* <div>
+                    <div class="slideshow-container">
+                        <div class="mySlides fade">
+                            <div class="numbertext">1 / 3</div>
+                            <img
+                                src={slide1}
+                                alt="img"
+                                style={{ width: "100%" }}
+                            />
+                            <div class="text">Caption Text</div>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <div class="numbertext">2 / 3</div>
+                            <img
+                                src={slide2}
+                                alt="img"
+                                style={{ width: "100%" }}
+                            />
+                            <div class="text">Caption Two</div>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <div class="numbertext">3 / 3</div>
+                            <img
+                                src={slide3}
+                                alt="img"
+                                style={{ width: "100%" }}
+                            />
+                            <div class="text">Caption Three</div>
+                        </div>
+
+                        <a class="prev" onclick="plusSlides(-1)">
+                            &#10094;
+                        </a>
+                        <a class="next" onclick="plusSlides(1)">
+                            &#10095;
+                        </a>
+                    </div>
+                    <br />
+
+                    <div style={{ textAlign: "center" }}>
+                        <span class="dot" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                    </div>
+                </div> */}
+
                 <div className="after-lendig">
                     <div className="un-gr">
                         <div className="un-gr_img">

@@ -1,0 +1,25 @@
+// .crousal-div {
+//     height: 80vh;
+//     width: 100%;
+//     overflow: none !important;
+//     z-index: 100;
+
+//     .img {
+//         // height: 80vh;
+//         max-height: 80vh;
+//         min-height: 80vh;
+//         object-fit: cover;
+//     }
+//     // background-size: cover;
+//     // background-repeat: no-repeat;
+// }
+
+.course-img {
+    height: 70vh;
+    // background-color: black;
+    // z-index: 100;
+
+    img {
+        background-size: cover;
+    }
+}
