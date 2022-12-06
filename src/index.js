@@ -10,6 +10,8 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Landing from "./pages/landing/Landing";
 import CourseDetails from "./pages/course-details/CourseDetails";
+import Video from "./pages/video/Video";
+import Certificate from "./components/certificate/Certificate";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -22,15 +24,15 @@ root.render(
             <Route path="/dashboard" element={<></>} />
             <Route path="/cart" element={<></>} />
             <Route path="/payment" element={<></>} />
-            <Route path="/courses" element={<></>} />
-            <Route path="/course-details" element={<CourseDetails />}>
-                <Route path=":video" element={<></>} />
-                <Route path=":notes" element={<></>} />
-                <Route path=":quiz" element={<></>} />
-                <Route path=":discussion" element={<></>} />
-            </Route>
+            <Route path="/course" element={<></>} />
+            <Route path="/course-details" element={<CourseDetails />} />
+            <Route path="/video" element={<Video />} />
+            <Route path="/notes" element={<></>} />
+            <Route path="/quiz" element={<></>} />
+            <Route path="/discussion" element={<></>} />
             <Route path="/contact-us" element={<></>} />
             <Route path="/about-us" element={<></>} />
+            <Route path="/certificate" element={<Certificate />} />
         </Routes>
     </Router>
 );

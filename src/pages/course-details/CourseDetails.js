@@ -22,6 +22,7 @@ import Carousel from "react-bootstrap/Carousel";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 
 import { CCarousel, CCarouselItem, CImage } from "@coreui/bootstrap-react";
+import Courses from "./Courses-section/Courses";
 
 const CourseDetails = () => {
     const expand = "lg";
@@ -129,42 +130,9 @@ const CourseDetails = () => {
                     </Container>
                 </Navbar>
 
-                {/* <div className="crousal-div">
-                    <CCarousel controls indicators>
-                        <CCarouselItem>
-                            <CImage
-                                className="d-block w-100 img"
-                                src={slide1}
-                                alt="slide 1"
-                            />
-                        </CCarouselItem>
-                        <CCarouselItem>
-                            <CImage
-                                className="d-block w-100 img"
-                                src={slide2}
-                                alt="slide 2"
-                            />
-                        </CCarouselItem>
-                        <CCarouselItem>
-                            <CImage
-                                className="d-block w-100 img"
-                                src={slide3}
-                                alt="slide 3"
-                            />
-                        </CCarouselItem>
-                        <CCarouselItem>
-                            <CImage
-                                className="d-block w-100"
-                                src={slide4}
-                                alt="slide 4"
-                            />
-                        </CCarouselItem>
-                    </CCarousel>
-                </div> */}
-            </div>
-
-            <div className="course-img">
-                <img src={slide1} alt="course info img" />
+                <div>
+                    <Courses />
+                </div>
             </div>
         </>
     );
