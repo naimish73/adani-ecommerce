@@ -12,6 +12,7 @@ import Landing from "./pages/landing/Landing";
 import CourseDetails from "./pages/course-details/CourseDetails";
 import Video from "./pages/video/Video";
 import Certificate from "./components/certificate/Certificate";
+import Chat from "./pages/chatss/App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -29,7 +30,7 @@ root.render(
             <Route path="/video" element={<Video />} />
             <Route path="/notes" element={<></>} />
             <Route path="/quiz" element={<></>} />
-            <Route path="/discussion" element={<></>} />
+            <Route path="/discussion" element={<Chat />} />
             <Route path="/contact-us" element={<></>} />
             <Route path="/about-us" element={<></>} />
             <Route path="/certificate" element={<Certificate />} />

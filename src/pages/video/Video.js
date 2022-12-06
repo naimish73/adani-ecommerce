@@ -17,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 
 // react vide player
 import ReactPlayer from "react-player";
+import Chat from "../chat/Chat";
 
 const Video = () => {
     const expand = "lg";
@@ -176,6 +177,10 @@ const Video = () => {
                 publishing software like Aldus PageMaker including versions of
                 Lorem Ipsum.
             </div>
+
+            {/* <div>
+                <Chat />
+            </div> */}
         </div>
     );
 };
