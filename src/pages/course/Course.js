@@ -15,6 +15,8 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Carousel from "react-bootstrap/Carousel";
 
+import Button from "react-bootstrap/Button";
+
 // import CourseDetails from "../course-details/CourseDetails";
 
 const Course = (props) => {
@@ -32,7 +34,7 @@ const Course = (props) => {
                 className="mb-3 navbarMain"
             >
                 <Container fluid>
-                    <Navbar.Brand href="#">
+                    <Navbar.Brand href="/">
                         <img src={logo} alt="adani logo" className="logo" />
                     </Navbar.Brand>
                     <Navbar.Toggle
@@ -74,15 +76,15 @@ const Course = (props) => {
                                     title="Courses "
                                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                                 >
-                                    <NavDropdown.Item href="#action3">
+                                    <NavDropdown.Item href="/course-details/#ds">
                                         Data Science
                                     </NavDropdown.Item>
                                     <NavDropdown.Divider />
-                                    <NavDropdown.Item href="#action4">
+                                    <NavDropdown.Item href="/course-details/#ai">
                                         Artificial Intelligence
                                     </NavDropdown.Item>
                                     <NavDropdown.Divider />
-                                    <NavDropdown.Item href="#action5">
+                                    <NavDropdown.Item href="/course-details/#ml">
                                         Machine Learning
                                     </NavDropdown.Item>
                                 </NavDropdown>
@@ -130,7 +132,15 @@ const Course = (props) => {
                 </div>
                 <div className="course-desc">
                     <hr />
-                    <h1>{location.state.title}</h1>
+                    <div className="course-info-one">
+                        <h1>{location.state.title}</h1>
+                        <div>
+                            <a href="https://rzp.io/l/R3yqvgx1gz">
+                                <Button variant="success">Enroll now</Button>
+                            </a>
+                        </div>
+                    </div>
+
                     <hr />
                     <div className="course-info">
                         <div>

@@ -44,6 +44,7 @@ import "../../firebase/FirebaseAuth";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Login from "../login/Login";
+import { Footer } from "../../components/footer/Footer";
 
 const Landing = () => {
     const expand = "lg";
@@ -78,7 +79,7 @@ const Landing = () => {
                 className="mb-3 navbarMain"
             >
                 <Container fluid>
-                    <Navbar.Brand href="#">
+                    <Navbar.Brand href="/">
                         <img src={logo} alt="adani logo" className="logo" />
                     </Navbar.Brand>
                     <Navbar.Toggle
@@ -120,15 +121,15 @@ const Landing = () => {
                                     title="Courses "
                                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                                 >
-                                    <NavDropdown.Item href="#action3">
+                                    <NavDropdown.Item href="/course-details/#ds">
                                         Data Science
                                     </NavDropdown.Item>
                                     <NavDropdown.Divider />
-                                    <NavDropdown.Item href="#action4">
+                                    <NavDropdown.Item href="/course-details/#ai">
                                         Artificial Intelligence
                                     </NavDropdown.Item>
                                     <NavDropdown.Divider />
-                                    <NavDropdown.Item href="#action5">
+                                    <NavDropdown.Item href="/course-details/#ml">
                                         Machine Learning
                                     </NavDropdown.Item>
                                 </NavDropdown>
@@ -332,9 +333,11 @@ const Landing = () => {
                             instituted to impart them with requisite skills and
                             training for contributing towards nation building.
                         </div>
-                        <div className="button">
-                            <a>LEARN MORE ABOUT THE ADANI UNIVERSITY</a>
-                        </div>
+                        <a href="https://adaniuni.ac.in/">
+                            <div className="button">
+                                LEARN MORE ABOUT THE ADANI UNIVERSITY
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <div className="downword">
@@ -432,9 +435,8 @@ const Landing = () => {
                         </Card>
                     </CardGroup>
                 </div>
-
-                <div className="footer"></div>
             </div>
+            <Footer />
         </>
     );
 };

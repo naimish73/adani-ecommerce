@@ -38,7 +38,7 @@ const CourseDetails = () => {
                     className="mb-3 navbarMain"
                 >
                     <Container fluid>
-                        <Navbar.Brand href="#">
+                        <Navbar.Brand href="/">
                             <img src={logo} alt="adani logo" className="logo" />
                         </Navbar.Brand>
                         <Navbar.Toggle
@@ -80,15 +80,15 @@ const CourseDetails = () => {
                                         title="Courses "
                                         id={`offcanvasNavbarDropdown-expand-${expand}`}
                                     >
-                                        <NavDropdown.Item href="#action3">
+                                        <NavDropdown.Item href="/course-details/#ds">
                                             Data Science
                                         </NavDropdown.Item>
                                         <NavDropdown.Divider />
-                                        <NavDropdown.Item href="#action4">
+                                        <NavDropdown.Item href="/course-details/#ai">
                                             Artificial Intelligence
                                         </NavDropdown.Item>
                                         <NavDropdown.Divider />
-                                        <NavDropdown.Item href="#action5">
+                                        <NavDropdown.Item href="/course-details/#ml">
                                             Machine Learning
                                         </NavDropdown.Item>
                                     </NavDropdown>

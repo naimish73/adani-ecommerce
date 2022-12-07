@@ -175,7 +175,7 @@ const Courses = () => {
         <section>
             <Container>
                 <Row>
-                    <Col lg="12" className="mb-5">
+                    <Col lg="12" className="mb-5" id="all">
                         <div className="course__top d-flex justify-content-between align-items-center">
                             <div className="course__top__left w-50">
                                 <h2>Our Popular Courses</h2>
@@ -201,7 +201,7 @@ const Courses = () => {
                     ))}
                 </Row>
                 <Row>
-                    <Col lg="12" className="mb-5">
+                    <Col lg="12" className="mb-5" id="ai">
                         <div className="course__top d-flex justify-content-between align-items-center">
                             <div className="course__top__left w-50">
                                 <h2>Artificial Intelligence Courses</h2>
@@ -227,7 +227,7 @@ const Courses = () => {
                     ))}
                 </Row>
                 <Row>
-                    <Col lg="12" className="mb-5">
+                    <Col lg="12" className="mb-5" id="ml">
                         <div className="course__top d-flex justify-content-between align-items-center">
                             <div className="course__top__left w-50">
                                 <h2>Machine Learning Courses</h2>
@@ -253,7 +253,7 @@ const Courses = () => {
                     ))}
                 </Row>
                 <Row>
-                    <Col lg="12" className="mb-5">
+                    <Col lg="12" className="mb-5" id="ds">
                         <div className="course__top d-flex justify-content-between align-items-center">
                             <div className="course__top__left w-50">
                                 <h2>Data Science Courses</h2>
