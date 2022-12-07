@@ -17,7 +17,7 @@ import { useNavigate } from "react-router-dom";
 
 // react vide player
 import ReactPlayer from "react-player";
-import Chat from "../chat/Chat";
+// import Chat from "../chat/Chat";
 
 const Video = () => {
     const expand = "lg";

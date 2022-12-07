@@ -320,18 +320,20 @@ const Landing = () => {
                 <div className="about_adani">
                     <div className="div2">
                         <div className="title">
-                            THE SEARCH FOR ALVERNO'S NINTH PRESIDENT
+                            ABOUT ADANI INSTITUTE OF INFRASTRUCTURE
                         </div>
                         <div className="discription">
-                            Alverno's ninth president will drive distinctive
-                            academic excellence and innovation, build on the
-                            College's strengths, and enhance its reputation and
-                            stature nationally and internationally. Alverno's
-                            Board of Trustees has selected Spencer Stuart to
-                            conduct the search for its next president.
+                            Adani Group, guided by the Infrastructure visionary
+                            of the nation, Shri Gautam Adani, established Adani
+                            Institute for Education & Research (AIER) under
+                            Section 8 of the Companies Act 2013 with an
+                            objective to provide the youth of the nation a
+                            platform to be the “Nation Builders”. AIER is
+                            instituted to impart them with requisite skills and
+                            training for contributing towards nation building.
                         </div>
                         <div className="button">
-                            <a>LEARN MORE ABOUT THE SEARCH</a>
+                            <a>LEARN MORE ABOUT THE ADANI UNIVERSITY</a>
                         </div>
                     </div>
                 </div>

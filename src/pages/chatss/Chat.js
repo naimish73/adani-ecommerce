@@ -1,11 +1,45 @@
-import "./App.css";
+import "./chat.css";
 import React, { useState } from "react";
 import { Button, TextField } from "@material-ui/core";
 import Todo from "./Todo";
-import db from "./firebase";
-import firebase from "firebase";
 
-function App() {
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+import {
+    collection,
+    addDoc,
+    serverTimestamp,
+    getDocs,
+    orderBy,
+    query,
+} from "firebase/firestore";
+
+// Import the functions you need from the SDKs you need
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+    apiKey: "AIzaSyBPWfxMve13iaOkmUs8EDn7Zu2UNOFzQog",
+    authDomain: "adani-mooc.firebaseapp.com",
+    projectId: "adani-mooc",
+    storageBucket: "adani-mooc.appspot.com",
+    messagingSenderId: "161778570951",
+    appId: "1:161778570951:web:8799b97847da3e28e090e2",
+    measurementId: "G-3DH8RPVLV2",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+// Initialize Firebase Authentication and get a reference to the service
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+function Chat() {
     const [todos, setTodos] = useState([]);
     const [input, setInput] = useState("");
     // const [name, setName] = useState(""); name variable
@@ -25,13 +59,33 @@ function App() {
     //         });
     // }, []);
 
-    const addTodo = (event) => {
+    const addTodo = async (event) => {
         event.preventDefault();
-        db.collection("todos").add({
-            todo: input,
-            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-            name,
-        });
+
+        try {
+            const docRef = await addDoc(collection(db, "todos"), {
+                todo: input,
+                // timestamp: db.firestore.FieldValue.serverTimestamp(),
+                timestamp: serverTimestamp(),
+                name,
+            });
+            console.log(
+                "Document written with ID: ",
+                docRef.id,
+                name,
+                serverTimestamp(),
+                input
+            );
+        } catch (e) {
+            console.error("Error adding document: ", e);
+        }
+
+        // db.collection("todos").add({
+        //     todo: input,
+        //     timestamp: db.firestore.FieldValue.serverTimestamp(),
+        //     name,
+        // });
+
         setTodos([...todos, input]);
         setInput("");
     };
@@ -41,20 +95,39 @@ function App() {
         setOpen(false);
     }
 
-    function loadDatabase() {
-        db.collection("todos")
-            .orderBy("timestamp", "desc")
-            .onSnapshot((snapshot) => {
-                setTodos(
-                    snapshot.docs.map((doc) => {
-                        return {
-                            id: doc.id,
-                            todo: doc.data().todo,
-                            name: doc.data().name,
-                        };
-                    })
-                );
-            });
+    async function loadDatabase() {
+        const querySnapshot = await getDocs(
+            // collection(db, "todos").orderBy("timestamp", "desc")
+            collection(db, "todos")
+        );
+        // const q = await query(querySnapshot, orderBy("timestamp", "desc"));
+        // console.log(q);
+        querySnapshot.forEach((doc) => {
+            console.log(
+                `this is a value:${doc.id} ${doc.data().todo} ${
+                    doc.data().name
+                }`
+            );
+            return {
+                id: doc.id,
+                todo: doc.data().todo,
+                name: doc.data().name,
+            };
+        });
+
+        // db.collection("todos")
+        //     .orderBy("timestamp", "desc")
+        //     .onSnapshot((snapshot) => {
+        //         setTodos(
+        //             snapshot.docs.map((doc) => {
+        //                 return {
+        //                     id: doc.id,
+        //                     todo: doc.data().todo,
+        //                     name: doc.data().name,
+        //                 };
+        //             })
+        //         );
+        //     });
     }
 
     return (
@@ -162,4 +235,4 @@ function App() {
     );
 }
 
-export default App;
+export default Chat;
