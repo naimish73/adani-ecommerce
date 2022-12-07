@@ -25,7 +25,8 @@ const Register = () => {
             .then((userCredential) => {
                 // Signed in
                 const user = userCredential.user;
-                alert("user is register");
+                // alert("user is register");
+                navigate("/");
             })
             .catch((error) => {
                 const errorCode = error.code;
