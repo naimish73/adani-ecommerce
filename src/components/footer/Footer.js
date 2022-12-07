@@ -44,7 +44,7 @@ export const Footer = () => {
                                     <CDBIcon fab icon="twitter" />
                                 </CDBBtn>
                             </a>
-                            <a href="">
+                            <a href="https://www.instagram.com/adaniuniversity/">
                                 <CDBBtn flat color="dark" className="p-2">
                                     <CDBIcon fab icon="instagram" />
                                 </CDBBtn>
@@ -60,8 +60,12 @@ export const Footer = () => {
                             style={{ cursor: "pointer", padding: "0" }}
                         >
                             {/* <CDBFooterLink href="/">Resources</CDBFooterLink> */}
-                            <CDBFooterLink href="/">About Us</CDBFooterLink>
-                            <CDBFooterLink href="/">Contact</CDBFooterLink>
+                            <CDBFooterLink href="/about-us">
+                                About Us
+                            </CDBFooterLink>
+                            <CDBFooterLink href="/contact-us">
+                                Contact
+                            </CDBFooterLink>
                             {/* <CDBFooterLink href="/">Blog</CDBFooterLink> */}
                         </CDBBox>
                     </CDBBox>

@@ -23,6 +23,7 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 
 import { CCarousel, CCarouselItem, CImage } from "@coreui/bootstrap-react";
 import Courses from "./Courses-section/Courses";
+import { Footer } from "../../components/footer/Footer";
 
 const CourseDetails = () => {
     const expand = "lg";
@@ -133,6 +134,7 @@ const CourseDetails = () => {
                 <div>
                     <Courses />
                 </div>
+                <Footer />
             </div>
         </>
     );

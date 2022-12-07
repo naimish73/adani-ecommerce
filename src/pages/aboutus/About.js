@@ -1,11 +1,15 @@
 import React from "react";
-import "./video.scss";
+import "./about.scss";
+
+import { Container, Row, Col } from "reactstrap";
+import aboutImg from "./../../assets/au.jpg";
+import CountUp from "react-countup";
 
 // images
 import logo from "./../../assets/adaniUniversity.jpg";
 
 // nav bar imports
-import Container from "react-bootstrap/Container";
+// import Container from "react-bootstrap/Container";
 // import Button from "react-bootstrap/Button";
 // import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
@@ -14,16 +18,10 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Carousel from "react-bootstrap/Carousel";
 import { useNavigate } from "react-router-dom";
-
-// react vide player
-import ReactPlayer from "react-player";
 import { Footer } from "../../components/footer/Footer";
-// import Chat from "../chat/Chat";
 
-const Video = () => {
+const About = () => {
     const expand = "lg";
-    const navigate = useNavigate();
-
     return (
         <div>
             <Navbar
@@ -125,66 +123,101 @@ const Video = () => {
                     </Navbar.Offcanvas>
                 </Container>
             </Navbar>
-            <div className="course-video-title">Course Video</div>
-            <hr />
-            <div className="video">
-                <ReactPlayer
-                    controls={true}
-                    width="70%"
-                    height="70vh"
-                    url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
-                />
-            </div>
-            <div className="video-desc">
-                <div className="video-desc-head">
-                    This is course heading of the course
-                </div>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry. Lorem Ipsum has been the industry's
-                standard dummy text ever since the 1500s, when an unknown
-                printer took a galley of type and scrambled it to make a type
-                specimen book. It has survived not only five centuries, but also
-                the leap into electronic typesetting, remaining essentially
-                unchanged. It was popularised in the 1960s with the release of
-                Letraset sheets containing Lorem Ipsum passages, and more
-                recently with desktop publishing software like Aldus PageMaker
-                including versions of Lorem Ipsum.Lorem Ipsum is simply dummy
-                text of the printing and typesetting industry. Lorem Ipsum has
-                been the industry's standard dummy text ever since the 1500s,
-                when an unknown printer took a galley of type and scrambled it
-                to make a type specimen book. It has survived not only five
-                centuries, but also the leap into electronic typesetting,
-                remaining essentially unchanged. It was popularised in the 1960s
-                with the release of Letraset sheets containing Lorem Ipsum
-                passages, and more recently with desktop publishing software
-                like Aldus PageMaker including versions of Lorem Ipsum.Lorem
-                Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum.
-            </div>
 
-            {/* <div>
-                <Chat />
-            </div> */}
+            <section>
+                <Container>
+                    <Row>
+                        <Col lg="6" md="6">
+                            <div className="about__img">
+                                <img src={aboutImg} alt="" className="w-100" />
+                            </div>
+                        </Col>
+
+                        <Col lg="6" md="6">
+                            <div className="about__content">
+                                <h2>About Us</h2>
+                                <p>
+                                    Adani Institute of Infrastructure
+                                    Engineering (AIIE) is established to equip
+                                    the students to become modern day engineers
+                                    and managers primarily for the
+                                    infrastructure and allied sectors.
+                                </p>
+
+                                <div className="about__counter">
+                                    <div className=" d-flex gap-5 align-items-center">
+                                        <div className="single__counter">
+                                            <span className="counter">
+                                                <CountUp
+                                                    start={0}
+                                                    end={42}
+                                                    duration={2}
+                                                    suffix="+"
+                                                />
+                                            </span>
+
+                                            <p className="counter__title">
+                                                Teachers
+                                            </p>
+                                        </div>
+
+                                        <div className="single__counter">
+                                            <span className="counter">
+                                                <CountUp
+                                                    start={0}
+                                                    end={6}
+                                                    duration={2}
+                                                    suffix="K+"
+                                                />
+                                            </span>
+
+                                            <p className="counter__title">
+                                                Enrolled Students
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div className=" d-flex gap-5 align-items-center">
+                                        <div className="single__counter">
+                                            <span className="counter">
+                                                <CountUp
+                                                    start={0}
+                                                    end={40}
+                                                    duration={2}
+                                                    suffix="+"
+                                                />
+                                            </span>
+
+                                            <p className="counter__title">
+                                                Industry Connections
+                                            </p>
+                                        </div>
+
+                                        <div className="single__counter">
+                                            <span className="counter">
+                                                <CountUp
+                                                    start={0}
+                                                    end={5}
+                                                    duration={2}
+                                                    suffix="K+"
+                                                />
+                                            </span>
+
+                                            <p className="counter__title">
+                                                Placements
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </Col>
+                    </Row>
+                </Container>
+            </section>
+
             <Footer />
         </div>
     );
 };
 
-export default Video;
+export default About;
