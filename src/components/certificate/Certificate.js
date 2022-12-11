@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { exportComponentAsPNG } from "react-component-export-image";
-
+import "../certificate/certificate.scss";
 import certificate from "./../../assets/certificate.jpg";
 
 class Certificate extends Component {

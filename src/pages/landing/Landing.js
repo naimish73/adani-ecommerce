@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React, { useEffect, useState } from "react";
 import "./landing.scss";
 
@@ -40,11 +41,39 @@ import CardGroup from "react-bootstrap/CardGroup";
 
 // fire base
 
-import "../../firebase/FirebaseAuth";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { initializeApp } from "firebase/app";
+
+import { DocumentSnapshot, getFirestore } from "firebase/firestore";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Login from "../login/Login";
 import { Footer } from "../../components/footer/Footer";
+import { collection, getDocs } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
+
+// Import the functions you need from the SDKs you need
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+    apiKey: "AIzaSyBPWfxMve13iaOkmUs8EDn7Zu2UNOFzQog",
+    authDomain: "adani-mooc.firebaseapp.com",
+    projectId: "adani-mooc",
+    storageBucket: "adani-mooc.appspot.com",
+    messagingSenderId: "161778570951",
+    appId: "1:161778570951:web:8799b97847da3e28e090e2",
+    measurementId: "G-3DH8RPVLV2",
+};
+
+// Initialize Firebase
+export const app = initializeApp(firebaseConfig);
+export const analytics = getAnalytics(app);
+// Initialize Firebase Authentication and get a reference to the service
+export const auth = getAuth(app);
+export const db = getFirestore(app);
 
 const Landing = () => {
     const expand = "lg";
@@ -52,20 +81,67 @@ const Landing = () => {
     const [index, setIndex] = useState(0);
     const [user, setUser] = useState(false);
 
-    const handleSelect = (selectedIndex, e) => {
-        setIndex(selectedIndex);
+    const userlogout = () => {
+        // import { getAuth,  } from "firebase/auth";
+        alert("log out");
+        const auth = getAuth();
+        signOut(auth)
+            .then(() => {
+                // Sign-out successful.
+                document.location.reload();
+                // navigate("/#");
+            })
+            .catch((error) => {
+                // An error happened.
+            });
     };
 
     const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(auth, async (user) => {
         if (user) {
             const uid = user.uid;
             // alert(`user id :  ${uid}`);
+            alert(uid);
+            const docRef = doc(db, "user-name", "3s0JkroIrCaJXZNRAz70Hr5Vshw2");
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+                alert(docSnap.data());
+                console.log("Document data:", docSnap.data());
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+
+            const querySnapshot = await getDocs(collection(db, `user-name/`));
+            querySnapshot.forEach((doc) => {
+                console.log(`${doc.id} => ${doc.data()}`);
+
+                if (doc.id === uid) {
+                    alert(doc.data().name);
+                    document.getElementById("leftusername").innerHTML =
+                        doc.data().name;
+                    document.getElementById("rightusername").innerHTML =
+                        doc.data().name;
+                }
+                console.log(doc.uid);
+                var username = doc;
+
+                document.getElementById("btn-mobileuser").style.display =
+                    "none";
+                document.getElementById("btn-descuser").style.display = "none";
+            });
+
             setUser(true);
         } else {
             // User is signed out
-            // ...
-            navigate("/login");
+            document.getElementById("right-logout").style.display = "none";
+            document.getElementById("left-logout").style.display = "none";
+            // navigate("/login");
+        }
+
+        function fucntionsing_out() {
+            alert("click on fucntion");
         }
     });
 
@@ -98,7 +174,7 @@ const Landing = () => {
                             </Offcanvas.Title>
                         </Offcanvas.Header>
                         <Offcanvas.Body>
-                            <div className="searchbar serch-right">
+                            {/* <div className="searchbar serch-right">
                                 <form class="nosubmit">
                                     <input
                                         class="nosubmit"
@@ -106,13 +182,29 @@ const Landing = () => {
                                         placeholder="Search..."
                                     />
                                 </form>
-                            </div>
-                            <div class="header-btn btn-mobile">
+                            </div> */}
+                            <div
+                                class="header-btn btn-mobile btn-aferlogin"
+                                id="btn-mobileuser"
+                            >
                                 <a href="../register/" class="sign-up">
                                     Sign Up
                                 </a>
                                 <a href="../login/" class="sign-in">
                                     Sign In
+                                </a>
+                            </div>
+                            <div
+                                class="header-btn btn-desc btn-logout btn-mobile"
+                                id="left-logout"
+                            >
+                                <a
+                                    href="../register/"
+                                    class="sign-up"
+                                    id="leftusername"
+                                ></a>
+                                <a href="../login/" class="sign-in">
+                                    Sign-Out
                                 </a>
                             </div>
                             <Nav className="justify-content-start flex-grow-1 pe-3 dropdown">
@@ -133,7 +225,48 @@ const Landing = () => {
                                         Machine Learning
                                     </NavDropdown.Item>
                                 </NavDropdown>
-                                <Nav.Link href="#action1">Home</Nav.Link>
+                                <div className="nav-pages">
+                                    <Nav.Link href="#action1" className="pages">
+                                        Home
+                                    </Nav.Link>
+                                    <Nav.Link href="#action1" className="pages">
+                                        Faculty
+                                    </Nav.Link>
+                                    <Nav.Link href="#" className="pages">
+                                        About Us
+                                    </Nav.Link>
+                                    <Nav.Link href="#" className="pages">
+                                        Contect Us
+                                    </Nav.Link>
+
+                                    <div
+                                        class="header-btn btn-desc btn-aferlogin"
+                                        id="btn-descuser"
+                                    >
+                                        <a href="../register/" class="sign-up">
+                                            Sign Up
+                                        </a>
+                                        <a href="../login/" class="sign-in">
+                                            Sign In
+                                        </a>
+                                    </div>
+                                    <div
+                                        class="header-btn btn-desc btn-logout"
+                                        id="right-logout"
+                                    >
+                                        <a
+                                            href="../register/"
+                                            class="sign-up"
+                                            id="rightusername"
+                                        ></a>
+                                        <button
+                                            class="sign-in"
+                                            onClick={userlogout}
+                                        >
+                                            Sign-Out
+                                        </button>
+                                    </div>
+                                </div>
                             </Nav>
                             {/* <Form className="d-flex form-search">
                                 <Form.Control
@@ -149,7 +282,7 @@ const Landing = () => {
                                     Search
                                 </Button>
                             </Form> */}
-                            <div className="searchbar serch-left">
+                            {/* <div className="searchbar serch-left">
                                 <form class="nosubmit">
                                     <input
                                         class="nosubmit"
@@ -157,15 +290,7 @@ const Landing = () => {
                                         placeholder="Search..."
                                     />
                                 </form>
-                            </div>
-                            <div class="header-btn btn-desc">
-                                <a href="../register/" class="sign-up">
-                                    Sign Up
-                                </a>
-                                <a href="../login/" class="sign-in">
-                                    Sign In
-                                </a>
-                            </div>
+                            </div> */}
                         </Offcanvas.Body>
                     </Navbar.Offcanvas>
                 </Container>

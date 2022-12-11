@@ -52,7 +52,18 @@
 .serch-left {
     margin-right: auto;
 }
-
+.nav-pages {
+    width: 78vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    right: 0px;
+}
+.pages {
+    padding: 10px !important;
+    background-color: violet;
+    margin: 5px;
+}
 @media (max-width: 992px) {
     .serch-right {
         display: block;
